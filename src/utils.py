@@ -14,7 +14,8 @@ def is_image_file(path):
 
 def collect_image_paths(folder):
     folder = Path(folder)
-    return [p for p in folder.iterdir() if p.is_file() and is_image_file(p)]
+    # Deterministic ordering avoids split drift across different filesystems.
+    return sorted([p for p in folder.iterdir() if p.is_file() and is_image_file(p)])
 
 
 def read_image(path):

@@ -1,1 +1,27 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
 
+# Generated datasets and experiment outputs
+augmented/*
+!augmented/.gitkeep
+!augmented/train/
+!augmented/test/
+augmented/train/*
+!augmented/train/.gitkeep
+augmented/test/*
+!augmented/test/.gitkeep
+
+features/*
+!features/.gitkeep
+
+# Serialized artifacts
+*.joblib
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# Local reports or exports
+Final Project.pdf

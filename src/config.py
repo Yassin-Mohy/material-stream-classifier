@@ -6,9 +6,7 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 
 # Main folders
 DATASET_DIR = BASE_DIR / "dataset"
-DATA_DIR = BASE_DIR / "data"
-AUGMENTED_DIR = DATA_DIR / "augmented"
-UNKNOWN_DIR = DATA_DIR / "unknown"
+AUGMENTED_DIR = BASE_DIR / "augmented"
 FEATURES_DIR = BASE_DIR / "features"
 MODELS_DIR = BASE_DIR / "models"
 REPORTS_DIR = BASE_DIR / "reports"
@@ -36,11 +34,9 @@ def create_project_folders():
     Create required output folders if they do not already exist.
     """
     folders = [
-        DATA_DIR,
         AUGMENTED_DIR,
         AUGMENTED_DIR / "train",
         AUGMENTED_DIR / "test",
-        UNKNOWN_DIR,
         FEATURES_DIR,
         MODELS_DIR,
         REPORTS_DIR,

@@ -12,33 +12,34 @@ np.random.seed(SEED)
 
 
 def rotate_image(img, angle):
+
     h, w = img.shape[:2]
     center = (w // 2, h // 2)
     matrix = cv2.getRotationMatrix2D(center, angle, 1.0)
+
     return cv2.warpAffine(img, matrix, (w, h), borderMode=cv2.BORDER_REFLECT)
 
-
 def random_crop_resize(img):
+
     h, w = img.shape[:2]
     scale = random.uniform(0.75, 0.95)
-
     crop_h = int(h * scale)
     crop_w = int(w * scale)
-
     y = random.randint(0, h - crop_h)
     x = random.randint(0, w - crop_w)
-
     crop = img[y:y + crop_h, x:x + crop_w]
+
     return cv2.resize(crop, (w, h))
 
-
 def adjust_brightness_contrast(img):
+
     alpha = random.uniform(0.75, 1.35)
     beta = random.randint(-25, 25)
+
     return cv2.convertScaleAbs(img, alpha=alpha, beta=beta)
 
-
 def blur_or_noise(img):
+
     choice = random.choice(["blur", "noise", "none"])
 
     if choice == "blur":
@@ -52,8 +53,8 @@ def blur_or_noise(img):
 
     return img
 
-
 def random_augment(img):
+
     operations = [
         lambda x: rotate_image(x, random.choice([-25, -15, 15, 25])),
         lambda x: cv2.flip(x, 1),
@@ -69,11 +70,10 @@ def random_augment(img):
 
     return img
 
-
 def save_original_training_images(class_name, train_paths):
+
     output_dir = AUGMENTED_DIR / "train" / class_name
     output_dir.mkdir(parents=True, exist_ok=True)
-
     saved = 0
 
     for path in tqdm(train_paths, desc=f"Saving originals for {class_name}"):
@@ -88,11 +88,10 @@ def save_original_training_images(class_name, train_paths):
 
     return saved
 
-
 def augment_training_class(class_name, train_paths):
+
     output_dir = AUGMENTED_DIR / "train" / class_name
     output_dir.mkdir(parents=True, exist_ok=True)
-
     saved = save_original_training_images(class_name, train_paths)
 
     while saved < TARGET_COUNT:
@@ -110,11 +109,10 @@ def augment_training_class(class_name, train_paths):
 
     return saved
 
-
 def save_test_class(class_name, test_paths):
+
     output_dir = AUGMENTED_DIR / "test" / class_name
     output_dir.mkdir(parents=True, exist_ok=True)
-
     saved = 0
 
     for path in tqdm(test_paths, desc=f"Saving test images for {class_name}"):
@@ -129,7 +127,6 @@ def save_test_class(class_name, test_paths):
 
     return saved
 
-
 def main():
     print("=" * 60)
     print("Material Stream Classifier - Data Preparation")
@@ -142,6 +139,7 @@ def main():
         return
 
     for class_dir in class_dirs:
+        
         class_name = class_dir.name
         image_paths = collect_image_paths(class_dir)
 
