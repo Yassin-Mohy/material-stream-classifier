@@ -1,16 +1,16 @@
-Accuracy: 0.7542
-Macro F1-score: 0.7024
+Accuracy: 0.7119
+Macro F1-score: 0.6662
 
               precision    recall  f1-score   support
 
-   cardboard       0.94      0.65      0.77        49
-       glass       0.58      0.58      0.58        78
-       metal       0.69      0.58      0.63        62
-       paper       0.80      0.96      0.87        90
-     plastic       0.64      0.66      0.65        71
-       trash       0.40      0.45      0.43        22
+   cardboard       0.89      0.63      0.74        49
+       glass       0.58      0.59      0.59        78
+       metal       0.64      0.58      0.61        62
+       paper       0.74      0.72      0.73        90
+     plastic       0.55      0.69      0.61        71
+       trash       0.38      0.41      0.39        22
      unknown       0.99      1.00      1.00       100
 
-    accuracy                           0.75       472
-   macro avg       0.72      0.70      0.70       472
-weighted avg       0.76      0.75      0.75       472
+    accuracy                           0.71       472
+   macro avg       0.68      0.66      0.67       472
+weighted avg       0.72      0.71      0.71       472

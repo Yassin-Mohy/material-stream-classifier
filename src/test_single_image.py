@@ -17,6 +17,7 @@ def main():
     model = joblib.load(MODELS_DIR / "best_model.pkl")
     scaler = joblib.load(FEATURES_DIR / "scaler.pkl")
     label_encoder = joblib.load(FEATURES_DIR / "label_encoder.pkl")
+    pca = joblib.load(FEATURES_DIR / "pca.pkl")
 
     img = cv2.imread(image_path)
 
@@ -26,7 +27,7 @@ def main():
 
     feature_vector = extract_features(img).reshape(1, -1)
     feature_vector = scaler.transform(feature_vector)
-
+    
     probabilities = model.predict_proba(feature_vector)[0]
 
     sorted_indices = np.argsort(probabilities)[::-1]
