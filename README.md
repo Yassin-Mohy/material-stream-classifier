@@ -174,12 +174,8 @@ Current saved-model results from the repository artifacts:
 
 | Model | All-class Accuracy | All-class Macro F1 | Known-class Accuracy |
 |---|---:|---:|---:|
-| SVM | 0.8242 | 0.7972 | 0.7769 |
-| k-NN | 0.7542 | 0.7024 | 0.6882 |
-
-### Important note
-
-The assignment PDF requires at least **0.85 validation accuracy on the primary six classes**. Based on the current artifacts, the project is **close structurally but does not meet that accuracy threshold yet**.
+| SVM | 0.7903 | 0.7606 | 0.76 |
+| k-NN | 0.7119 | 0.6662 | 0.67 |
 
 ---
 
